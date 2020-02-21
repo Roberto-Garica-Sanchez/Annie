@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Carga de archivos</title>
+		<META CHARSET="UTF-8"/>
+		<LINK REL="STYLESHEET" HREF="estilo.css"        TYPE="TEXT/CSS"/>
+	</head>
+	<body>
+	<?php
+		include('libre.php');
+
+	?>
+		<form action="" method="POST" enctype="multipart/form-data">
+		<?php
+		  echo$me1=input(hidden,user,$_POST[user]);
+		  echo$me2=input(hidden,pass,$_POST[pass]);
+		  if(($_POST[user]<>'') and($_POST[pass]<>'')){
+  		    echo$me1;
+  		    echo$me2; 
+		    $conexion=login('localhost',$_POST[user],$_POST[pass]);
+              	  }
+		if ($conexion=='')include("login.php");
+		if ($conexion<>''){
+		?>conecte
+		   <!--<table border="1">
+		      <tr>
+			<td>titulo</td>
+			<td><?php echo input(text,title,$_POST[title]);?></td>
+		      </tr>
+		      <tr>
+			<td>Descripcion</td>
+			<td><?php echo input(text,descri,$_POST[descri]);?></td>
+		      <tr>
+		      <tr>
+			<td>Archivo</td>
+			<td><?php echo input(file,archivo,$_POST[archivo]); ?></td>
+		      </tr>
+		      <tr>
+			<td>Cliente</td>
+			<td></td>
+		      </tr>
+		   </table>-->
+		<?php }?>
+		</form>
+	</body>
+</html>

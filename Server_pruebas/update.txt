@@ -1,0 +1,30 @@
+[in] en progreso
+[es] en espera
+[ok] completado
+[no] no realizado 
+vercion 1 [15-04-2018] aproxi
+1. [ok]no arrastra la cuenta anterior  la cantidad   solo arrastra el puro numero de factura
+2. [in]no  saca la cuenta entre los kilometros y los litros   o sea no saca el rendimento entre kilometros por litro
+3. [ok]en la suma del total de gastos  donde sum,a el diesel las casetas el chofer  etc  para porder dar el rendimiento  no cuadra la cuenta  da una cantidad mas alta 
+4. [ok]no hace la resta o suma  cuando pongo los abonos  o prestamos 
+5. [ok]cuando das guardar  y pones nuevo se quedan todos los datos   anteriores  no se  borran  tengo que borrarlos manualmente  o en definitivo  tengo que salirme del programa y volber a entrar  con contraseñas  y eso  no debe ser
+6. [ok]se borra via pass 
+7. [in]terminar lo del combustible tiempo real 
+8. [ok]no limpia botton 
+9. [no]librerador de cuentas no arrastradas [muy importante] (registra que fue arrastrada pero no es guardada en la que se arastra )
+
+vercion 1.01 [02-05-2018]
+//correciones 
+ 
+1. [js][ok]suma de totales 
+2. [js][ok]no funcina comprobador (desactivado cor comentario)
+
+//buil
+1. [in]terminar lo del combustible tiempo real 
+2. [ok]compatibilidad para nuevas tb 
+3. [ok][Altas] creando todo el bloque de altas (Operadores,Cliente,Unidades)
+4. [es]
+
+//add
+1.	[js]recarga lista de arrastradas cuando cambia chofer 
+2.	[js][php][Nuevo]rediseño de la consola 

@@ -1,0 +1,4 @@
+segundas colunas se borran 
+	al guardas datos de una cuenta la informacion no se guarda 	
+mejorar uso del enter 
+se borra precio dicel 

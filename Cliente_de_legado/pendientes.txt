@@ -1,0 +1,3 @@
+[online	]tablas de ingreso desactivas 
+[		]tablas de culculos desactivas
+[online	]add consola

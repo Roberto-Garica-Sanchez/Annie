@@ -1,0 +1,21 @@
+<?php
+function input($type,$name,$value,$title,$style,$libre){
+  $z="<input type='$type' name='$name' value='$value' style='$style' class='Medio' $title>";
+  return $z;	
+}
+function db($base,$conexion)
+{
+        mysql_select_db($base,$conexion)or die ('Probleamas Para Estableser Comunicasion Con La Base De Datos');
+}
+/*
+function consulta($tabla,$conexion,$col_espe,$espe,$bloque)
+{
+        $consulta="SELECT * FROM ".$tabla;
+	/*if(($espe<>'') and ($col_espe<>'') and ($bloque<>$_POST[$espe])){
+	   $consulta="SELECT * FROM ".$tabla." WHERE $col_espe='$_POST[$espe]'";
+	}*
+	$consu=mysql_query($consulta,$conexion)	
+	  or Die ("<font color='red'>Error Al Estableser Comunicasion Con La Tabla '".$tabla."'<br>formurio: ".$consulta."<br> consu </font>");
+        return $consu;
+}*/
+?>

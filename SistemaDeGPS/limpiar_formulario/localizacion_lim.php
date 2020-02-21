@@ -1,0 +1,11 @@
+<?php
+    $_POST['ID']="";
+    $_POST['Dispositivo']="";
+    $_POST['Longitud']="";
+    $_POST['Latitud']="";
+    $_POST['Fecha']="";
+    $_POST['Hora']="";
+    $_POST['bateria']="";
+    $_POST['senal']="";
+    $_POST['pulso']="";
+?>

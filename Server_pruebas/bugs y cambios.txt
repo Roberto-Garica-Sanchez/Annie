@@ -1,0 +1,8 @@
+bugs 
+corregido->los puntos causan problemas l guardar 
+completado->boton para limpiar el formulario 
+->remplazar el procesos de aguardado
+->crear primero los campos con los ID_G y despues guardar como updates 
+corregida->el forlder tiene un ciclo de tretrado para descargar las cuentas . posible problema es que las fechas no son enviadas 
+->las cuentas que estan dañadas y notiene su celda en fechas no apareseran 
+ 

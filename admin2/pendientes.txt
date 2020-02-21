@@ -1,0 +1,57 @@
+===================================[Index]=======================================
+[		]actualizador Compatibilidad con diagnostico
+[		]Diagnostico hidden
+[		]Diagnostico intefaz
+===================================[falta]=======================================
+[OK		]-actualizar numero de cuenta de chofer 
+[OK		]-leer numero de cuenta y + 1
+[in		]-configurar enter para cambiar de elemento 	
+ ->		 -{		}Replazado con el auto_focus al completar
+[OK		]-informar de los arrastes a las cuentas 
+[OK		]-Eliminar arrastes a las cuentas 
+[TRANS3	]-TABLA DE GUARDADO
+[TRANS1	]-TABLA CON REPARADOR 
+[		](TRANS3)-ACTUALIZADOR  
+		{		}Inter-comunicasion con Diagnostico
+		{		}Presentar una tabla que todo a sido guardado corectamente 
+[		]-crear el folder 
+[		]-descargar cuenta 
+[		]-LIMPIAR FORMULARIO
+[OK		]-Eliminar cuenta 
+[		](TRANS1)-Diagnostico de cuentas completas y reparador 
+		{		}Sistema con interfaz y hidden
+		{		}Reparar las cuentas sin choferes 
+		{		}Revisar que cada cuenta tenga una tabla vinculada
+		{		}Añadir las tablas faltante de la revision
+
+===================================[bugs]=======================================
+
+[No		]-COMPARADOR DE KILOMETRAJES
+ ->		El Bugd no fue licalizado en los test 
+[OK		]-VIATICOS_C GUARDAO ERATICO
+[TRANS1	]-no paresen todas las cuentas par arrastrar 
+ ->		 -el sistema cambien presentaba las cartas sin chofer esto sera reparado mediante el sistema de diagnostico 
+
+
+===================================[cambios]=======================================
+  
+[OK		]-add fechas campo inicio 
+[OK		]-corecion casetas_via
+[TRANS2	]-verificador independiente 
+ ->		 -sera instalado el nuevo sistema de verificasion incluido este problema
+[TRANS2	]-js cambiar autom que la cuenta esta libre 
+ ->		 -sera instalado el nuevo sistema de verificasion incluido este problema
+
+===================================[ajustes]=======================================
+
+[act	]-cambiar el proceso de verificasion para ejecutar desde elementos externos 
+			-no se puedo devido a que las peticiones son las lentas que la ejecucion de js 
+(posible solucion) cunado termine de las peticiones que verifique de nuevo 
+[TRANS2	]-verificar tambien las cuentas arrastradas 
+[		](TRANS2)-verifocador entre nuevo y modificar 
+		{		}verificasiones independiente
+		{		}Verificar los cambios de eliminado y guardado
+		{		}Verificar la disponibilidad de las cuentas arrastradas 
+		{		}notificar de los cambios a cada elemento
+[TRANS2	]-verifique que todos los cambios de eliminay y guardar esten completos antes 
+			de modificar la tabla folio

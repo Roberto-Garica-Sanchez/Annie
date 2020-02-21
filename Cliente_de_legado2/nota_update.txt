@@ -1,0 +1,4 @@
+nota version 1 
+Creacion de 'Nuevo 2.0' para Cliente de legado
+Nuevo class 'libre_v1'
+Creacion de 'update1' 	para base de batos 'Empresa'

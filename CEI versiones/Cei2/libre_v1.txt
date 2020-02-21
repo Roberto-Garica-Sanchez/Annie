@@ -1,0 +1,371 @@
+//console.log(focus_a);
+var indexado="";
+function crearAjax			(){
+   var objetoAjax=false;
+   if(navigator.appName=="Microsoft Internet Explorer")
+     objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+   else
+     objetoAjax = new XMLHttpRequest();
+   return(objetoAjax);
+}
+function menu				(){
+	var sub=document.getElementById("submenu");
+	if(sub.className=='submenu')		{sub.className="submenuhidden";}else
+	if(sub.className=='submenuhidden'){sub.className="submenu";}
+}
+function cambia_co_centro	(button){
+	var ajax=crearAjax();
+	var carga=button.value;
+	if(ajax){
+		ajax.onreadystatechange = function(){
+		  var divres=document.getElementById("style_co_centro");
+		  if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			divres.innerHTML = this.responseText;
+			
+		  }else{
+			divres.innerHTML="Cargando ...";
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga="+carga+"&js=1");
+  }
+}
+function reg_alum(){
+	var send;
+	send="&cuenta="+cuenta.value+"&name="+nombre.value+"&firt="+firt.value+"&last="+last.value+"&school="+school.value;
+	var ajax=crearAjax();
+	save=verificador();
+	//if(save==true){Respuesta.innerHTML="Guardando";}
+	if((ajax)&&(save==true)){
+		ajax.onreadystatechange = function(){
+		  if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			Respuesta.innerHTML = this.responseText;
+			if(this.responseText=="1"){
+				Respuesta.innerHTML ="Registered";
+			}
+		  }else{
+			Respuesta.innerHTML ="loading...";
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga=reg_alum2&js=1"+send);
+  }	
+}
+function MaysPrimera(string){
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function valida_n(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla==8){
+        return true;
+    }
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+function verificador(){
+	var save=true;
+	if(!nombre.value){
+		nombre.style.background="pink";
+		Respuesta.innerHTML="Incomplete Data";		
+		save=false;
+	}
+	if(nombre.value){
+		nombre.style.background="";
+		nombre.value=MaysPrimera(nombre.value);		
+		Respuesta.innerHTML="";
+	}
+	if(!firt.value){
+		firt.style.background="pink";	
+		Respuesta.innerHTML="Incomplete Data";
+		save=false;
+		
+	}
+	if(firt.value){
+		firt.style.background="";
+		firt.value=MaysPrimera(firt.value);	
+		Respuesta.innerHTML="";
+	}
+	if(!last.value){
+		last.style.background="pink";
+		Respuesta.innerHTML="Incomplete Data";
+		save=false;
+		
+	}
+	if(last.value){
+		last.style.background="";
+		last.value=MaysPrimera(last.value);	
+		Respuesta.innerHTML="";
+	}
+	var res=ver_cuenta();
+	if(!cuenta.value){
+		cuenta.style.background="pink";
+		Respuesta.innerHTML="Incomplete Data";
+		save=false;
+		
+	}
+	if(cuenta.value){
+		cuenta.style.background="";
+		Respuesta.innerHTML="";
+	}
+	if(school.value=="school"){
+		school.style.background="pink";
+		Respuesta.innerHTML="Incomplete Data";
+		save=false;
+		
+	}
+	if(cuenta.style.color=='red'){
+		save=false;
+	}
+	if(school.value!="school"){
+		school.style.background="";
+		Respuesta.innerHTML="";
+	}
+	return save;
+}
+function reg_agen(){
+	var send;
+	if(cuenta.value!="cuenta")	{
+		send=
+			"&cuenta="+cuenta.value
+			+"&reloj="+reloj.value
+			+"&fecha="+fecha.value
+			+"&dia="+idia.value
+			+"&mes="+imes.value
+			+"&ano="+iano.value
+			+"&hora="+ihora.value
+			+"&minuto="+iminuto.value
+			;
+	}
+	var ajax=crearAjax();
+	verfica_time();
+	/*if(ajax){
+		ajax.onreadystatechange = function(){
+		  if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			list_agen.innerHTML = this.responseText;
+			cuenta.selectedIndex=0;
+			
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga=reg_agen&js=1"+send);
+  }	*/
+}
+function reg_getout(elemento){
+	var send;
+		send=
+			"&cuenta="+elemento.name
+			+"&entrada_hora="+elemento.id
+			+"&reloj="+reloj.value
+			+"&fecha="+fecha.value
+			+"&dia="+idia.value
+			+"&mes="+imes.value
+			+"&ano="+iano.value
+			+"&hora="+ihora.value
+			+"&minuto="+iminuto.value
+			;
+	var ajax=crearAjax();
+	if(ajax){
+		ajax.onreadystatechange = function(){
+		  if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			list_agen.innerHTML = this.responseText;
+			cuenta.selectedIndex=0;
+			
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga=reg_getout&js=1"+send);
+  }	
+}
+function ver_cuenta(){
+	var send;
+	send="&cuenta="+cuenta.value;
+	var ajax=crearAjax();
+	if(ajax){
+		ajax.onreadystatechange = function(){
+		  if((ajax.readyState==4)&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			
+			if(this.responseText=="1"){
+				cuenta.style.color="red";
+				cuenta.style.background="pinck";
+				Respuesta.innerHTML="The User Exists";
+			}
+			if(this.responseText=="0"){
+				cuenta.style.color="black";		
+				cuenta.style.background="";		
+				Respuesta.innerHTML="";
+			}
+			
+		  }else{
+			Respuesta.innerHTML="Verifying ...";
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga=ver_cuenta&js=1"+send);
+  }	
+}
+function mueveReloj(){ 
+	
+	var fecha	=document.getElementById("fecha");	
+	var idia	=document.getElementById("idia");	
+	var imes	=document.getElementById("imes");	
+	var iano	=document.getElementById("iano");
+	
+	var reloj	=document.getElementById("reloj");	
+	var ihora	=document.getElementById("ihora");	
+	var imin	=document.getElementById("iminuto");	
+	
+	
+   	var momentoActual = new Date();
+   	var hora 	=('0' + momentoActual.getHours()).slice(-2);
+   	var minuto 	=('0' + momentoActual.getMinutes()).slice(-2); 
+   	var segundo =('0' + momentoActual.getSeconds()).slice(-2);
+	
+   	var dia = momentoActual.getDate(); 
+   	var mes = ('0' + (momentoActual.getMonth()+1)).slice(-2); 
+   	var ano = momentoActual.getFullYear(); 
+
+
+   	FechaImprimible = dia + " / " + mes + " / " + ano; 
+   	horaImprimible = hora + " : " + minuto + " : " + segundo; 
+	
+	fecha.value = FechaImprimible; 
+	idia.value=dia;
+	imes.value=mes;
+	iano.value=ano;
+	ihora.value=hora;
+	imin.value=minuto;
+	reloj.value = horaImprimible; 
+
+   	setTimeout("mueveReloj()",1000); 
+} 
+function cambia(elemento) {
+	if(!elemento){setTimeout("location.href='entradas.php'", 80);}
+	if(elemento){
+		setTimeout("location.href='"+elemento+"'", 80);
+	}
+	
+}
+function reportes			(){
+	var peticion=true;
+	var c=document.getElementById("alumnos");
+	var d=document.getElementById("D");
+	var m=document.getElementById("M");
+	var a=document.getElementById("A");
+	var d_r=document.getElementById("D_r");
+	var m_r=document.getElementById("M_r");
+	var a_r=document.getElementById("A_r");
+	/*var deta=document.getElementById("detallado").checked;
+	var list=document.getElementById("lista").checked;*/
+	var Alumnos=alumnos.value;
+	var D=d.value;
+	var M=m.value;
+	var A=a.value;
+	var D_r=d_r.value;
+	var M_r=m_r.value;
+	var A_r=a_r.value;
+	//if (deta){deta=1;}else{deta=0;}
+	//if (list){list=1;}else{list=0;}
+	if ((D>=1)&&(D<=31))			{d.className="Medio";}else{peticion=false;d.className="error";}
+	if ((M>=1)&&(M<=12))			{m.className="Medio";}else{peticion=false;m.className="error";}
+	if ((A>=2015)&&(A<=2030))		{a.className="Medio";}else{peticion=false;a.className="error";}
+	if ((D_r>=1)&&(D_r<=31))		{d_r.className="Medio";}else{peticion=false;d_r.className="error";}
+	if ((M_r>=1)&&(M_r<=12))		{m_r.className="Medio";}else{peticion=false;m_r.className="error";}
+	if ((A_r>=2015)&&(A_r<=2030))	{a_r.className="Medio";}else{peticion=false;a_r.className="error";}
+
+	var ajax=crearAjax();
+	if((ajax)&&(peticion==true)){
+		ajax.onreadystatechange = function(){
+			var divres=document.getElementById("list_agen");
+			if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+				divres.innerHTML = this.responseText;
+			}else{
+				divres.innerHTML="Cargando ...";
+			}
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		//ajax.send("win_carga=reportes&js=1&C="+C+"&P="+P+"&CL="+CL+"&D="+D+"&M="+M+"&A="+A+"&D_r="+D_r+"&M_r="+M_r+"&A_r="+A_r+"&Deta="+deta+"&List="+list,true);
+		ajax.send("win_carga=reportes&js=1&alumnos="+Alumnos+"&D="+D+"&M="+M+"&A="+A+"&D_r="+D_r+"&M_r="+M_r+"&A_r="+A_r,true);
+	}
+}
+function login(){
+	var send;
+		send=
+			"&usuario="+usuario.value
+			+"&fecha="+fecha.value
+			/*+"&reloj="+reloj.value
+			+"&fecha="+fecha.value
+			+"&dia="+idia.value
+			+"&mes="+imes.value
+			+"&ano="+iano.value
+			+"&hora="+ihora.value
+			+"&minuto="+iminuto.value*/
+			;
+	var ajax=crearAjax();
+	if(ajax){
+		ajax.onreadystatechange = function(){
+		  if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			user.value = this.responseText;
+			
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga=login&js=1"+send);
+  }	
+	
+}
+function out_agen(){
+	
+	var send;
+		send=
+			"&cuenta="+cuenta2.value
+			+"&fecha="+fecha.value
+			;
+	var ajax=crearAjax();
+	if(ajax){
+		ajax.onreadystatechange = function(){
+		  if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			list_out.innerHTML = this.responseText;			
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga=out_agen&js=1"+send);
+  }	
+}
+function verfica_time(){
+	
+	var send;
+		send=
+			"&cuenta="+cuenta.value
+			+"&fecha="+fecha.value
+			+"&hora="+reloj.value
+			;
+	var ajax=crearAjax();
+	if(ajax){
+		ajax.onreadystatechange = function(){
+		  if(((ajax.readyState==3)||(ajax.readyState==4))&& (ajax.status == 200)){
+			var respuesta = document.createTextNode(ajax.responseText);
+			list_out.innerHTML = this.responseText;			
+		  }
+		}
+		ajax.open("POST","windows.php",true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send("win_carga=verfica_time&js=1"+send);
+  }	
+}

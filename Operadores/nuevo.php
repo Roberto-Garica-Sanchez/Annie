@@ -1,0 +1,9 @@
+<?php
+    require_once("../nucleoA.php");
+    $input['echo']=true;
+    $label['echo']=true;
+    input($input);
+    input($input);
+    input($input);
+    label($label);
+?>

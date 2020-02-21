@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="mx" xml:lang="mx">
+        <head>
+			    <TITLE>Deposito De Facturas</TITLE>
+                <META CHARSET="UTF-8"/>
+		<LINK REL="STYLESHEET" HREF="estilo.css"        TYPE="TEXT/CSS"/>
+        </head>
+	<body>
+		<form action="" method="post">
+	</body>
+</html>

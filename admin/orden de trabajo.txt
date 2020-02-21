@@ -1,0 +1,43 @@
+#############################################################
+#	Diseñar bajo el uso de JAXA para mejorar el rendimiento #directy listbox
+#	Consusltas Mysql Generan Lentitud en todas los sectores	#filelistbox
+#															#drivecombox
+#															#filtercomoboxs
+#															#
+#############################################################
+==Almacene==
+--entradas--
+	memoria en entradas					 	//eliminada
+	remplazo de memoria > input2			//completo
+	verificador numerico 					//pendiente 
+	Conexion a tabla 						//en desarrollo
+<--entradas-->
+--Productos--
+	Cambia el texto de provedor por 
+	descripcion en la consulta 				//completo
+	Modficasion no descarga el provedor 	//completo
+	modificasion no cambia la imagen 		//pendiente 
+	verificador numerico 					//pendiente 
+	Mas imagenes y se agranden en la pantalla//Pendiente
+	casillas con sus valores  ($ ,m )		//en Progreso
+<--Productos-->
+
+==U.P.T.==
+--libre_uni--
+	funcion "compo"	Causa lentitud 			//Pendiente de revision y renovasion
+	#Posible Solucion-->Rediseñar peticiones a la base de datos 
+==Cuentas==
+Rescribir bajo ajax 
+################################
+	Menu Principal  Genera lentitud			//pendiente
+################################
+<--Modificar-->
+	funcion "Verificador" Genera lentitud 	//Pendiente 
+	#Posible Solucion-->Solo verificar antes de guardar y en el momento de guardado 
+	>--Abonos--<
+		Menu para arrastados Lentitud		//Pendiente
+	>/--Abonos--<
+</--Modificar-->
+<--Reporte -->
+	Areas no terminadas						//Pendiente 
+</--Reporte -->

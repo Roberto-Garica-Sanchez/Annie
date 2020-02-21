@@ -1,0 +1,136 @@
+#include<Servo.h>
+int led1=2; //luz de A
+int led2=3; //luz de B
+int led3=4; //fan de A
+int led4=5; //fan de B
+
+int pin1=10;  //prolle de A
+int pin2=11; //prolle de B
+int pin3=7;  //sensor 
+int pin4=8;  //sensor B
+int pin5=12; //button 7
+int pin6=13; //button 8
+int pin7=14; //button 1
+int pin8=15; //button 2
+int pin9=16; //button 3
+int pin10=17;//button 4
+int pin11=18;//button 5
+int pin12=19; //button 6
+int sen1=0,sen2=0,sen3=0,sen4=0,sen5=0,sen6=0,sen7=0,sen8=0,sen9=0,sen10=0,var2=0;
+int fun1=0,fun2=0,fun3=0,fun4=0,fun5=0,fun6=0,fun7=0,fun8=0;
+
+Servo servo1;//pin 6 --<puertas A
+Servo servo2;//pin 9 --<puertas B
+//Servo servo3;//pin 10--<cortina A
+//Servo servo4;//pin 11--<cortina B
+
+void setup(){ 
+  Serial.begin(9600); 
+  pinMode(led1, OUTPUT);  //luz -a
+  pinMode(led2, OUTPUT);  //luz -b
+  pinMode(led3, OUTPUT);  //fan -a
+  pinMode(led4, OUTPUT);  //fan -b
+  pinMode(pin1, OUTPUT);   //prolle -a
+  pinMode(pin2, OUTPUT);   //prolle -b
+  pinMode(pin3, INPUT);   //sensor a
+  pinMode(pin4, INPUT);   //sensor b
+  pinMode(pin5, INPUT);   //button -1
+  pinMode(pin6, INPUT);   //button -2
+  pinMode(pin7, INPUT);   //button -3
+  pinMode(pin8, INPUT);   //button -4
+  pinMode(pin9, INPUT);   //button -5
+  pinMode(pin10, INPUT);  //button -6
+  pinMode(pin11, INPUT);  //button -7
+  pinMode(pin12, INPUT);  //button -8  
+  servo1.attach(6);     //puertas de A
+  servo2.attach(9);     //puertas de B  
+  //servo3.attach(10);    //cortina de A
+  //servo4.attach(11);    //cortina de B
+  
+} 
+void loop(){ 
+    char var1=Serial.read();
+    //if(((var1=='1')or(var1=='o'))and(fun1==0)){fun1=1;digitalWrite(led1,HIGH);}//luz -a
+   // else
+   // if(((var1=='1')or(var1=='f'))and(fun1==1)){fun1=0;digitalWrite(led1,LOW);}   //luz -a
+    /*
+    if((var1=='3')or(var1=='o'))//digitalWrite(led2,HIGH);  //luz -b
+    if((var1=='4')or(var1=='f'))//digitalWrite(led2,LOW);   //luz -b
+    
+    if((var1=='5')or(var1=='o'))//digitalWrite(led3,HIGH);  //fan -a
+    if((var1=='6')or(var1=='f'))//digitalWrite(led3,LOW);   //fan -a
+    if((var1=='7')or(var1=='o'))//digitalWrite(led4,HIGH);  //fan -b    
+    if((var1=='8')or(var1=='f'))//digitalWrite(led4,LOW);   //fan -b
+    
+    if((var1=='q')or(var1=='o'))//digitalWrite(pin1,HIGH); //prolle -a
+    if((var1=='w')or(var1=='f'))//digitalWrite(pin1,LOW);  //prolle -a
+    if((var1=='e')or(var1=='o'))//digitalWrite(pin2,HIGH); //prolle -b
+    if((var1=='r')or(var1=='f'))//digitalWrite(pin2,LOW);  //prolle -b
+
+  /* 
+int pin3=7;  //sensor A
+int pin4=8;  //sensor B
+int pin5=12; //button 7
+int pin6=13; //button 8
+int pin7=14; //button 1
+int pin8=15; //button 2
+int pin9=16; //button 3
+int pin10=17;//button 4
+int pin11=18;//button 5
+int pin12=19; //button 6
+int sen1=0,sen2=0,sen3=0,sen4=0,sen5=0,sen6=0,sen7=0,sen8=0,sen9=0,sen10=0,var2=0;
+
+  */
+  
+    sen1=digitalRead(pin3);//sensor a
+    sen2=digitalRead(pin4);//sensor b
+    sen3=digitalRead(pin7);//button 1
+    sen4=digitalRead(pin8);//button 2
+    sen5=digitalRead(pin9);//button 3
+    sen6=digitalRead(pin10);//button 4
+    sen7=digitalRead(pin11);//button 5
+    sen8=digitalRead(pin12);//button 6
+    
+    if(((var1=='1')or(var1=='o')or(sen3==HIGH))and(fun1==0)){fun1=1;digitalWrite(led1,HIGH);}else //luz -a
+    if(((var1=='1')or(var1=='f')or(sen3==HIGH))and(fun1==1)){fun1=0;digitalWrite(led1,LOW);}      //luz -a
+    if(((var1=='2')or(var1=='o')or(sen4==HIGH))and(fun2==0)){fun2=1;digitalWrite(led2,HIGH);}else //luz -a
+    if(((var1=='2')or(var1=='f')or(sen4==HIGH))and(fun2==1)){fun2=0;digitalWrite(led2,LOW);}      //luz -a
+    if(((var1=='3')or(var1=='o')or(sen5==HIGH))and(fun3==0)){fun3=1;digitalWrite(led3,HIGH);}else //luz -a
+    if(((var1=='3')or(var1=='f')or(sen5==HIGH))and(fun3==1)){fun3=0;digitalWrite(led3,LOW);}      //luz -a
+    if(((var1=='4')or(var1=='o')or(sen6==HIGH))and(fun4==0)){fun4=1;digitalWrite(led4,HIGH);}else //luz -a
+    if(((var1=='4')or(var1=='f')or(sen6==HIGH))and(fun4==1)){fun4=0;digitalWrite(led4,LOW);}      //luz -a
+    if(((var1=='5')or(var1=='o')or(sen7==HIGH)or(sen1==HIGH))and(fun5==0)){fun5=1;servo1.write(90);} else//digitalWrite(led1, HIGH);
+    if(((var1=='5')or(var1=='f')or(sen7==HIGH)or(sen1==HIGH))and(fun5==1)){fun5=0;servo1.write(0);}
+    if(((var1=='6')or(var1=='o')or(sen8==HIGH)or(sen2==HIGH))and(fun6==0)){fun6=1;servo2.write(90);} else//digitalWrite(led1, HIGH);
+    if(((var1=='6')or(var1=='f')or(sen8==HIGH)or(sen2==HIGH))and(fun6==1)){fun6=0;servo2.write(0);}
+    if(((var1=='7')or(var1=='o')or(sen9==HIGH))and(fun7==0)){fun7=1;digitalWrite(led4,HIGH);}else //luz -a
+    if(((var1=='7')or(var1=='f')or(sen9==HIGH))and(fun7==1)){fun7=0;digitalWrite(led4,LOW);}      //luz -a
+    delay(500);
+    /*
+    if(sen3==HIGH){digitalWrite(led1,HIGH);}
+    if(sen3==LOW) {digitalWrite(led1,LOW);}
+    if(sen4==HIGH){digitalWrite(led2,HIGH);}
+    if(sen4==LOW) {digitalWrite(led2,LOW);}
+    if(sen5==HIGH){digitalWrite(led3,HIGH);}
+    if(sen5==LOW) {digitalWrite(led3,LOW);}
+    if(sen6==HIGH){digitalWrite(led4,HIGH);}
+    if(sen6==LOW) {digitalWrite(led4,LOW);}
+    
+       
+    if((sen1==HIGH)or(sen7==HIGH)){Serial.write("abriendo"); //digitalWrite(led1, HIGH);
+      servo1.write(90);
+      delay(4000);
+      servo1.write(0); Serial.write("Cerrada");
+    }
+     if((sen2==HIGH)or(sen8==HIGH))  {Serial.write("abriendo"); //digitalWrite(led2, HIGH);
+      servo2.write(90);   
+      delay(6000); 
+      servo2.write(0);Serial.write("Cerrada");
+    }
+    if(var1=='z'){servo1.write(90); Serial.write("abriendo"); } //puertas de A
+    if(var1=='x'){servo1.write(0);  Serial.write("Cerrada"); } //puertas de A
+    if(var1=='c'){servo2.write(90); Serial.write("abriendo"); } //puertas de B
+    if(var1=='v'){servo2.write(0);  Serial.write("Cerrada"); } //puertas de B
+    var2=var1;
+  */  
+}

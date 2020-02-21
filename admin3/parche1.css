@@ -1,0 +1,76 @@
+
+.min{
+	width: 200px; 
+	height: 20px; 
+	background: rgba(5, 72, 108, 0.67); 
+	position: relative; 
+	overflow: hidden; 
+	float: left;
+}
+.divCalculos{
+	width: 575px; 
+	height: 300px; 
+	background: rgba(5, 72, 108, 0.67); 
+	position: absolute; 
+	bottom: 0px; 
+	left: 100px;
+	cursor: pointer;
+}
+.divGeneral{
+	width: 660px; 
+	height: 460px; 
+	background: rgba(5, 72, 108, 0.67); 
+	position: absolute; 
+	left: 100px;
+	top: 17px;
+	cursor: pointer;
+	
+}
+.divInformacion{
+	width: 225px;
+	height: 505px;
+	background: rgba(5, 72, 108, 0.67);
+	position: relative;
+	float: right; 
+	cursor: pointer;
+}
+.divArrastrar{
+	width: 280px;
+	background: rgba(5, 72, 108, 0.67);
+	position: absolute;
+	bottom: 0px;
+	top: 17px;
+	cursor: pointer;
+}
+.divAbonos{
+	width: 320px;
+	height: 180px;
+	background: rgba(5, 72, 108, 0.67);
+	position: absolute;
+	bottom: 0px;
+	left: 405px;
+}
+.divwindows_prueba{
+	width: 200px;
+    height: 150px;
+    background: rgba(5, 72, 108, 0.67);
+    position: relative;
+}
+.divConsola{
+	border-radius: 5px;
+	height: 150px;
+	background: rgb(5, 72, 108);
+	position: fixed;
+	bottom: 0px;
+	left: 125px;
+	right: 25px;
+}
+.Consola{
+	border-radius: 5px;
+	height: 150px;
+	background: rgb(5, 72, 108);
+	position: fixed;
+	bottom: 0px;
+	left: 125px;
+	right: 25px;
+}
