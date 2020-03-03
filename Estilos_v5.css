@@ -389,6 +389,7 @@
             background: #1f1f1f;
             width: auto;
             height: auto;
+            min-width: 855px;
             padding: 10px;
             overflow-x: hidden;
             overflow-y: auto;
