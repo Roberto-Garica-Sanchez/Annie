@@ -15,7 +15,7 @@ if(!empty($_POST['D_f']))echo $libre_v2->input2('hidden','D_f','',$_POST['D_f'],
 if(!empty($_POST['M_f']))echo $libre_v2->input2('hidden','M_f','',$_POST['M_f'],$style,'',$libre,'');
 if(!empty($_POST['A_f']))echo $libre_v2->input2('hidden','A_f','',$_POST['A_f'],$style,'',$libre,'');
 if(!empty($_POST['operador']) and $_POST['operador']=='Limpiar'){include("../Cliente_de_legado_Ares/limpia.php");}
-echo"<div id='Conte_pri' style='width: 1197px;position: relative;overflow: hidden;top: 20px;height: 600px;background: #343434;left: 105px;'>";
+echo"<div id='Conte_pri' style='    width: 1197px;float: right;overflow: hidden;top: 45px;height: 600px;background: #343434;left: 50px;'>";
 if($_POST['Soft_version']=='Ares'){	
 	if ($_POST['name2set']=='Nuevo')		{include("Nuevo.php");}
 	if ($_POST['name2set']=='Folder')		{include("folder2.php");}
