@@ -563,7 +563,7 @@ class libre_v2	{
 		if ($conexion=="") 	{echo"[db] Conexion no existente";		}		
 		if ($phpv=="")  	{echo"[db]Version de php no Definidad";	}
 		if ($phpv=='php5')	{$res=mysql_select_db($base,$conexion) or die ("[db]Error php5". mysql_error());}
-		if ($phpv=='php7')	{$res=mysqli_select_db($conexion,$base)	or die ("[db]Error php7". mysql_error());}
+		if ($phpv=='php7')	{$res=mysqli_select_db($conexion,$base)	or die ("[db]Error php7". mysqli_error($conexion));}
 		return $res;
 	}
 	function login				($host,$user,$pass,$db,$phpv)											{
