@@ -4,8 +4,6 @@
 //if ($libre_v1=='')	{	include("../libre_v1.php");}	if ($libre_v1==''){echo"Error de Carga 'libre_v1'";}
 //if ($libre_v2=='')	{	include("../libre_v2.php");}	if ($libre_v2==''){echo"Error de Carga 'libre_v2'";}
 //$libre_v2->db($db,$conexion,$phpv);
-$db='empresa';
-
 $libre_v2->db($db,$conexion,$phpv);
 if(empty($_POST['Carta0']) and !empty($_POST['Carta1'])){$_POST['Carta0']=$_POST['Carta1'];}
 $consu_choferes	= 	$libre_v2->consulta	('choferes'	,$conexion	,'','','Nombre_Ch'	,'',$phpv,'','');
